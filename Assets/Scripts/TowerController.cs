@@ -11,12 +11,11 @@ public class TowerController : MonoBehaviour
 	void Start () 
 	{
 		AstarPath.active.UpdateGraphs (gameObject.GetComponent<BoxCollider2D>().bounds);
-		InvokeRepeating ("Shoot", fireRate, fireRate);
-	}
-	
-	void Update () 
-	{
-		
+
+		if (bullet) 
+		{
+			InvokeRepeating ("Shoot", fireRate, fireRate);
+		}
 	}
 
 	void Shoot()
@@ -31,8 +30,6 @@ public class TowerController : MonoBehaviour
 			bulletController.setEnemy(enemy);
 			bulletController.target = enemy;
 		}
-
-
 	}
 
 	public GameObject FindClosestEnemy(GameObject[] enemies) 
@@ -42,7 +39,6 @@ public class TowerController : MonoBehaviour
 		Vector3 position = transform.position;
 		foreach (GameObject enemy in enemies) 
 		{
-
 			Vector3 diff = enemy.transform.position - position;
 			float curDistance = diff.magnitude;
 

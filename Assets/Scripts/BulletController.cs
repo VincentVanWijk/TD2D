@@ -2,8 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BulletController : MonoBehaviour {
-
+public class BulletController : MonoBehaviour 
+{
 	public float speed;
 
 	[HideInInspector]
@@ -12,17 +12,11 @@ public class BulletController : MonoBehaviour {
 		public EnemyController enemyController;
 	[HideInInspector]
 		public GameObject target;
-
-	void Start ()
-	{
-
-	}
 	
 	// Update is called once per frame
 	void Update () 
 	{
 		FlyToTarget ();
-
 	}
 
 	public void FlyToTarget()

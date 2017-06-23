@@ -4,12 +4,6 @@ using UnityEngine;
 
 public class ObstacleController : MonoBehaviour 
 {
-
-	void Start () 
-	{
-		
-	}
-	
 	void Update () 
 	{
 		if (transform.hasChanged)

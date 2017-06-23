@@ -5,27 +5,34 @@ using UnityEngine;
 public class EnemySpawnController : MonoBehaviour 
 {
 	public GameObject[] enemies;
+	public float spawnRate;
 	int maxEnemyCount;
-
-	void Start () 
-	{
-	}
-	
-	void Update ()
-	{
-		
-	}
 
 	public void SpawnEnemies()
 	{
-		int maxEnemyCount = GameController.waveNumber * 10;
+		StartCoroutine (HandleIt(spawnRate));
+	}
+
+	private IEnumerator HandleIt(float spawnRate)
+	{
+		int maxEnemyCount = GameController.waveNumber * 4;
 		int currentEnemyCount = 0;
 
 		while (currentEnemyCount < maxEnemyCount) 
 		{
-			int random = Random.Range (0, enemies.Length);
+			int random;
+			if (maxEnemyCount - currentEnemyCount > enemies.Length -1) 
+			{
+				random = Random.Range (0, enemies.Length);
+			} 
+			else 
+			{
+				random = Random.Range (0, maxEnemyCount - currentEnemyCount);		
+			}
 			GameObject spawnedEnemy =  Instantiate (enemies[random], transform.position, Quaternion.identity) as GameObject;
-			currentEnemyCount += spawnedEnemy.GetComponent<EnemyController> ().level;
+			currentEnemyCount += spawnedEnemy.GetComponent<EnemyController> ().spawnWeight;
+			yield return new WaitForSeconds( spawnRate);
+
 		}
 	}
 }

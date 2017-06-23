@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class EnemyController : MonoBehaviour 
 {
-	public int health, damage, level;
+	public int health, damage, moneyValue, spawnWeight;
 	public bool isAlive;
 	public Sprite deadEnemy;
 	public GameObject blood;
@@ -15,17 +15,17 @@ public class EnemyController : MonoBehaviour
 		isAlive = true;
 		FindEndPoint ();
 	}
-	
-	void Update () 
-	{
-	}
-
+		
 	void FindEndPoint()
 	{
+		print ("start");
 		GameObject endPoint = GameObject.FindGameObjectWithTag ("End Point");
 
 		AIPath pathFinder = gameObject.GetComponent<AIPath> ();
 		pathFinder.target = endPoint.transform;
+		print ("end");
+
+
 	}
 
 	public void ReceiveDamage(int recievedDamage)

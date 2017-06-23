@@ -11,12 +11,6 @@ public class TileSpawner : MonoBehaviour
 	{
 		SpawnTiles ();
 		SpawnObstacles ();
-
-	}
-	
-	void Update () 
-	{
-		
 	}
 
 	void SpawnTiles()
@@ -44,7 +38,6 @@ public class TileSpawner : MonoBehaviour
 		int z = 0;
 		for (int y = 0; y < maxy; y++) 
 		{
-		
 			Vector3 spawnPos = new Vector3 (x + 0.5f, y + 0.5f, z);
 			GameObject currentObstacle =  Instantiate (obstacle, spawnPos, Quaternion.identity) as GameObject;
 			currentObstacle.transform.SetParent (parentObstacle.transform);

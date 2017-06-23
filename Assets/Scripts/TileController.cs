@@ -5,23 +5,13 @@ using UnityEngine;
 public class TileController : MonoBehaviour
 {
 	public GameObject wall, smgTower;
-	void Start () 
-	{
-		
-	}
-	
-	void Update () 
-	{
-		
-	}
 
 	void OnMouseEnter()
 	{
-		if (gameObject.layer != 9 && GameController.isSpawningObject) 
+		if (GameController.isSpawningObject) 
 		{
 			GetComponent<SpriteRenderer> ().color = Color.green;
 		} 
-
 	}
 
 	void OnMouseExit()
@@ -33,24 +23,23 @@ public class TileController : MonoBehaviour
 	{
 		if (GameController.isSpawningObject) 
 		{
-			
-		
+			GameObject spawnedObject = null;
+			GameObject parentObject = GameObject.FindGameObjectWithTag ("ParentBuiltTowers");
 			switch (GameController.towerToSpawn) 
 			{
 				case TowerType.Wall:
-					Instantiate (wall, transform.position, Quaternion.identity);
+					spawnedObject = Instantiate (wall, transform.position, Quaternion.identity) as GameObject;
 					break;
 				
 				case TowerType.SMGTower:
-					Instantiate (smgTower, transform.position, Quaternion.identity);
+					spawnedObject = Instantiate (smgTower, transform.position, Quaternion.identity) as GameObject;
 					break;
 					
 				default:
 					break;
 			}
+
+			spawnedObject.transform.parent = parentObject.transform;
 		}
-
-		//GameController.isSpawningObject = false;
-
 	}
 }

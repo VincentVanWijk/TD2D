@@ -4,16 +4,6 @@ using UnityEngine;
 
 public class EndPointController : MonoBehaviour
 {
-	public GameObject gameOverScreen;
-	void Start () 
-	{
-		
-	}
-	
-	void Update ()
-	{
-		
-	}
 
 	void OnTriggerEnter2D(Collider2D other)
 	{
@@ -21,11 +11,13 @@ public class EndPointController : MonoBehaviour
 		{
 			if (GameController.playerHealth > 0) 
 			{
-				GameController.playerHealth--;
+				EnemyController enemy = other.GetComponent<EnemyController> ();
+				GameController.playerHealth -= enemy.damage;
+				GameController.UpdateUI ();
 
 				if (GameController.playerHealth <= 0) 
 				{
-					gameOverScreen.SetActive (true);
+					GameController.ShowGameOverScreen ();
 					Time.timeScale = 0;
 				}
 			}

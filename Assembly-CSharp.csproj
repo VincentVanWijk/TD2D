@@ -142,7 +142,6 @@
      <Compile Include="Assets\AstarPathfindingProject\Utilities\RetainedGizmos.cs" />
      <Compile Include="Assets\AstarPathfindingProject\Utilities\UnityReferenceHelper.cs" />
      <Compile Include="Assets\AstarPathfindingProject\changelog.cs" />
-     <Compile Include="Assets\ObjectSpawnController.cs" />
      <Compile Include="Assets\Pixelplacement\iTweenPath\iTweenPath.cs" />
      <Compile Include="Assets\Scripts\BulletController.cs" />
      <Compile Include="Assets\Scripts\EndPointController.cs" />
@@ -153,8 +152,7 @@
      <Compile Include="Assets\Scripts\TileController.cs" />
      <Compile Include="Assets\Scripts\TileSpawner.cs" />
      <Compile Include="Assets\Scripts\TowerController.cs" />
-     <Compile Include="Assets\Scripts\TowerToggleController.cs" />
-     <Compile Include="Assets\TowerTypes.cs" />
+     <Compile Include="Assets\Scripts\TowerSpawnController.cs" />
      <None Include="Assets\AstarPathfindingProject\Editor\EditorAssets\Materials\Navmesh.cginc" />
      <None Include="Assets\AstarPathfindingProject\Editor\EditorAssets\Materials\Navmesh.shader" />
      <None Include="Assets\AstarPathfindingProject\Plugins\DotNetZip\DotNetZipLicense.txt" />
