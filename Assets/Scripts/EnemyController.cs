@@ -18,14 +18,9 @@ public class EnemyController : MonoBehaviour
 		
 	void FindEndPoint()
 	{
-		print ("start");
 		GameObject endPoint = GameObject.FindGameObjectWithTag ("End Point");
-
 		AIPath pathFinder = gameObject.GetComponent<AIPath> ();
 		pathFinder.target = endPoint.transform;
-		print ("end");
-
-
 	}
 
 	public void ReceiveDamage(int recievedDamage)
