@@ -21,25 +21,51 @@ public class TileController : MonoBehaviour
 
 	void OnMouseDown()
 	{
+		GameObject objectToSpawn;
 		if (GameController.isSpawningObject) 
 		{
 			GameObject spawnedObject = null;
 			GameObject parentObject = GameObject.FindGameObjectWithTag ("ParentBuiltTowers");
 			switch (GameController.towerToSpawn) 
 			{
-				case TowerType.Wall:
+			case TowerType.Wall:
+
+				objectToSpawn = wall;
+				/*
+				if (GameController.money >= wall.GetComponent<TowerController>().cost ) 
+				{
 					spawnedObject = Instantiate (wall, transform.position, Quaternion.identity) as GameObject;
-					break;
+					GameController.money -= wall.GetComponent<TowerController> ().cost;
+					spawnedObject.transform.parent = parentObject.transform;
+				}	
+				*/
+				break;
 				
-				case TowerType.SMGTower:
+			case TowerType.SMGTower:
+
+				objectToSpawn = smgTower;
+				/*if (GameController.money >= smgTower.GetComponent<TowerController> ().cost) {
 					spawnedObject = Instantiate (smgTower, transform.position, Quaternion.identity) as GameObject;
-					break;
+					GameController.money -= smgTower.GetComponent<TowerController> ().cost;
+					spawnedObject.transform.parent = parentObject.transform;
+
+				}*/
+				break;
 					
-				default:
+			default:
+
+				objectToSpawn = wall;
 					break;
 			}
 
-			spawnedObject.transform.parent = parentObject.transform;
+
+			if(GameController.money >= objectToSpawn.GetComponent<TowerController>().cost)
+			{
+				spawnedObject = Instantiate (objectToSpawn, transform.position, Quaternion.identity) as GameObject;
+				GameController.money -= objectToSpawn.GetComponent<TowerController> ().cost;
+				spawnedObject.transform.parent = parentObject.transform;
+			}
+
 		}
 	}
 }

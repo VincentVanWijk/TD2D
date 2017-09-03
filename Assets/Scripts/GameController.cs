@@ -23,15 +23,19 @@ public class GameController : MonoBehaviour
 		isSpawningObject = false;
 		maxHealth = 10;
 		waveNumber = 0;
-		money = 0;
+		money = 350;
 		playerHealth = maxHealth;
+	}
+
+	void Update()
+	{
+		UpdateUI ();
 	}
 
 	public void StartWave()
 	{
 		waveNumber++;
 		enemySpawner.SpawnEnemies ();
-		UpdateUI ();
 	}
 
 	public static void UpdateUI()
@@ -67,7 +71,7 @@ public class GameController : MonoBehaviour
 	{
 		maxHealth = 10;
 		waveNumber = 0;
-		money = 0;
+		money = 350;
 		RemoveSpawnedObstacles ();
 		KillAllEnemies ();
 		HideGameOverScreen ();

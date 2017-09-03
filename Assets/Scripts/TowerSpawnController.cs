@@ -12,7 +12,6 @@ public enum TowerType
 public class TowerSpawnController : MonoBehaviour 
 {
 	public TowerType towerToSpawn;
-	public int cost;
 
 	public void StartSpawn()
 	{

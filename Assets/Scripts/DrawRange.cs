@@ -4,7 +4,7 @@ using System.Collections;
 public class DrawRange : MonoBehaviour
 {
 	public float ThetaScale = 0.001f;
-	public float radius = 3f;
+	public float radius;
 	private int Size;
 	private LineRenderer LineDrawer;
 	private float Theta = 0f;
@@ -12,6 +12,7 @@ public class DrawRange : MonoBehaviour
 	void Start ()
 	{       
 		LineDrawer = GetComponent<LineRenderer>();
+		radius = gameObject.GetComponent<TowerController> ().range;
 	}
 
 	void Update ()

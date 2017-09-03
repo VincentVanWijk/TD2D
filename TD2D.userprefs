@@ -1,11 +1,17 @@
 ﻿<Properties StartupItem="Assembly-CSharp.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\DrawRange.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\TowerController.cs">
     <Files>
-      <File FileName="Assets\Scripts\EnemySpawnController.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\EnemyController.cs" Line="22" Column="1" />
-      <File FileName="Assets\Scripts\TowerController.cs" Line="1" Column="1" />
-      <File FileName="Assets\DrawRange.cs" Line="20" Column="37" />
+      <File FileName="Assets\Scripts\EnemySpawnController.cs" Line="31" Column="5" />
+      <File FileName="Assets\Scripts\EnemyController.cs" Line="52" Column="38" />
+      <File FileName="Assets\Scripts\TowerController.cs" Line="37" Column="5" />
+      <File FileName="Assets\Scripts\DrawRange.cs" Line="15" Column="62" />
+      <File FileName="Assets\Scripts\TileSpawner.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\TowerSpawnController.cs" Line="15" Column="1" />
+      <File FileName="Assets\Scripts\GameController.cs" Line="26" Column="12" />
+      <File FileName="Assets\Scripts\TileController.cs" Line="57" Column="26" />
+      <File FileName="Assets\Scripts\BulletController.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\EndPointController.cs" Line="1" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

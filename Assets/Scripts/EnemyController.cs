@@ -49,6 +49,7 @@ public class EnemyController : MonoBehaviour
 		gameObject.GetComponent<AIPath> ().speed = 0;
 		isAlive = false;
 		Destroy (gameObject, 2);
+		GameController.money += moneyValue;
 	}
 
 }

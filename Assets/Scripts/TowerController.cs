@@ -4,9 +4,10 @@ using UnityEngine;
 
 public class TowerController : MonoBehaviour 
 {
-	public int damage,  health, level, range;
-	public float fireRate;
+	public int damage,  health, level, range, cost;
+	public float fireRate, rotateSpeed;
 	public GameObject bullet;
+
 
 	void Start () 
 	{
@@ -29,6 +30,39 @@ public class TowerController : MonoBehaviour
 			bulletController.damage = damage;
 			bulletController.setEnemy(enemy);
 			bulletController.target = enemy;
+
+			if (gameObject.transform.childCount > 0) 
+			{
+				Transform pivot = gameObject.transform.GetChild (0);
+
+				pivot.transform.LookAt (enemy.transform.position);
+
+				Quaternion q = pivot.transform.rotation;
+				Vector3 newRot = q.eulerAngles;
+				newRot.z = 90;
+				q.eulerAngles = newRot;
+				pivot.transform.rotation = q;
+//				
+				float thisIsX = q.eulerAngles.x;
+				float thisIsZ = 90 - thisIsX;
+
+				print (thisIsZ);
+
+				Quaternion q2 = b.transform.rotation;
+				Vector3 newRotB = Vector3.zero;
+				newRotB.z = thisIsZ;
+				q2.eulerAngles = newRotB;
+				b.transform.rotation = q2;
+//				iTween.LookTo(pivot.gameObject, 
+//					iTween.Hash
+//					(
+//						"looktarget", enemy.transform.position,
+//						"time", rotateSpeed,
+//						"easetype", iTween.EaseType.linear
+//					));
+			}
+
+
 		}
 	}
 
@@ -44,8 +78,11 @@ public class TowerController : MonoBehaviour
 
 			if (curDistance < distance && curDistance <= range) 
 			{
-				closest = enemy;
-				distance = curDistance;
+				if (enemy.GetComponent<EnemyController>().isAlive) 
+				{
+					closest = enemy;
+					distance = curDistance;	
+				}
 			}
 		}
 		return closest;		

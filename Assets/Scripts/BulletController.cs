@@ -24,6 +24,15 @@ public class BulletController : MonoBehaviour
 		if (target) 
 		{
 			transform.position = Vector2.MoveTowards (transform.position, target.transform.position, speed * Time.deltaTime);
+			Transform pivot = gameObject.transform;
+
+//			pivot.transform.LookAt (target.transform.position);
+//
+//			Quaternion q = pivot.transform.rotation;
+//			Vector3 newRot = q.eulerAngles;
+//			newRot.z = 90;
+//			q.eulerAngles = newRot;
+//			pivot.transform.rotation = q;
 			if (Vector2.Distance(transform.position,target.transform.position) < 0.01f) 
 			{
 				if(enemyController)
